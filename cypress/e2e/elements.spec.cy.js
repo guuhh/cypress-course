@@ -37,7 +37,7 @@ describe('Work with basic elements', () =>{
 
 
     })
-    it.only('TextFields', ()=>{
+    it('TextFields', ()=>{
         cy.get('input#formNome').type('Cypress test')
         cy.get('input#formNome').should('have.value','Cypress test')
 
@@ -64,6 +64,54 @@ describe('Work with basic elements', () =>{
         .clear()
         .type('Erro{selectall}Acerto', {delay:100})
         .should('have.value', 'Acerto')
+    })
+
+    it('RadioButton', ()=>{
+        cy.get('#formSexoFem')
+        .click()
+        .should('be.checked')
+
+        cy.get('#formSexoMasc').should('not.be.checked')
+
+        cy.get('[name=formSexo]').should('have.length', 2)
+    })
+
+    it('CheckBox', ()=>{
+        // check the exact quantity of element which use this name attribute.
+        cy.get('[name=formComidaFavorita]').should('have.length', 4)
+
+        cy.get('#formComidaFrango')
+        .click()
+        .should('be.checked')
+
+        cy.get('[name="formComidaFavorita"]').click({multiple: true})
+        // after multiple select, just frango wont selected
+        cy.get('#formComidaFrango').should('not.be.checked')
+
+        // all checkbox options will be selected
+        cy.get('#formComidaCarne').should('be.checked')
+        cy.get('#formComidaPizza').should('be.checked')
+        cy.get('#formComidaVegetariana').should('be.checked')
+    })
+
+    it('Combo', ()=>{
+        cy.get('[data-test=dataEscolaridade]')
+        .select('2o grau completo')
+        .should('have.value', '2graucomp')
+
+        cy.get('[data-test=dataEscolaridade]')
+        .select('1graucomp')
+        .should('have.value', '1graucomp')
+
+        //TODO validar opções do combo
+    })
+
+    it('Combo Multiplo', ()=>{
+        cy.get('[data-testid=dataEsportes]')
+        .select(['natacao','Corrida', 'nada']) // use value insted of text
+
+        //TODO validar opções selecionadas do combo multiplo
+
     })
 })
 
