@@ -2,9 +2,8 @@
 # gitignore template for the CypressIO, browser test framework
 # website: https://www.cypress.io/
 
-node_modules/*
-node_modules/.package-lock.json
-cypress-course/package-lock.json
+node_modules
+package-lock.json
 cypress/downloads/*
 cypress/videos/*
 
