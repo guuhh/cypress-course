@@ -1,0 +1,11 @@
+### CypressIO ###
+# gitignore template for the CypressIO, browser test framework
+# website: https://www.cypress.io/
+
+node_modules/*
+package-lock.json
+cypress/downloads/*
+cypress/videos/*
+
+
+# End of https://www.toptal.com/developers/gitignore/api/cypressio
