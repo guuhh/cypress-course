@@ -14,9 +14,9 @@
 //   return a + b;
 // }
 
-// const soma = (a, b) => {
-//   return a + b
-// }
+ const soma = (a, b) => {
+   return a + b
+ }
 
 // com chaves, deve-se adicionar o "return"
 //const soma = (a, b) => a + b 
@@ -26,7 +26,7 @@
 // para apenas 1 parametro nao precisa dos parenteses
 //const soma = a => a + a
 
-const soma = () => 5 + 5
+//const soma = () => 5 + 5
 console.log(soma(1,4));
 
 it('a function test...', function() {
