@@ -1,12 +1,30 @@
 /// <reference types="Cypress" />
 
 describe('Cypress basiics', () => {
-    it('should visit a page and assert title', () => {
+    it.only('should visit a page and assert title', () => {
         cy.visit('https://wcaquino.me/cypress/componentes.html')
           .title()
              .should('be.equal', 'Campo de Treinamento')
              .should('contain', 'Campo')
              .and('contain', 'Treinamento')
+            
+             let syncTitle;
+
+             cy.title().then($title =>{
+                console.log($title)
+
+                cy.get('#formNome').type($title)
+                syncTitle = $title
+
+             })
+
+             cy.get('#formSobrenome').then($el =>{
+                $el.val(syncTitle)
+             })
+
+             cy.get('#elementosForm\\:sugestoes').then($el =>{
+                cy.wrap($el).type(syncTitle)
+             })
         
     })
 

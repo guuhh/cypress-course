@@ -27,7 +27,7 @@ describe('work with basic elements', () =>{
         // following the DOM structure using xPath: /html/body//center/form/input[3]
         // skipping all DOM structure /html/body: //
         //https://www.red-gate.com/simple-talk/development/dotnet-development/xpath-css-dom-and-selenium-the-rosetta-stone/
-
+       //*[@id="tabelaUsuarios"]/tbody/tr[1]/td[3]/input
 
     })
 })
