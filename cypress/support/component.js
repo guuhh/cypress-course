@@ -24,7 +24,7 @@ import { mount } from 'cypress/react18'
 Cypress.Commands.add('mount', mount)
 
 Cypress.SelectorPlayground.defaults({
-    selectorPriority: ['id','class','attributes','data-cy','data-test','data-testid','tag','nth-child']
+    selectorPriority: ['data-cy','data-test','data-testid','id','class','attributes','tag','nth-child']
 })
 // Example use:
 // cy.mount(<MyComponent />)
